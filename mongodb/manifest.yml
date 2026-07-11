@@ -31,8 +31,8 @@ spec:
       - name: mongodb
         image: krishna88s/mongodb:1.0
 
+---
 
-# lb service---
 apiVersion: v1
 kind: Service
 metadata:
