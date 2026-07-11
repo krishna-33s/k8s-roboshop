@@ -13,7 +13,7 @@ metadata:
   annotations:
     kubernetes.io/change-cause: "version is 1.29.6"  
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       # these labels is for replicaset to select the pods
