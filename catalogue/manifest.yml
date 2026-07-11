@@ -48,7 +48,7 @@ spec:
         image: krishna88s/catalogue:1.0
         envFrom:
         - configMapRef:
-            name: catalogue-config
+            name: catalogue-configmap
 
 ---
 
