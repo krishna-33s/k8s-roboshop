@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: roboshop
+  # this labels is for replicaset
+  labels:
+    project: roboshop
+    tier: database
+    component: mongodb
+    environment: dev
+    
+  annotations:
+    kubernetes.io/change-cause: "version is 1.29.6"  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      # these labels is for replicaset to select the pods
+      project: roboshop
+      tier: database
+      component: mongodb
+      environment: dev
+  template:
+    metadata:
+    # these for pod defination
+      labels:
+        project: roboshop
+        tier: database
+        component: mongodb
+        environment: dev
+    spec:
+      containers:
+      - name: mongodb
+        image: krishna88s/mongodb:1.0
+
+
+# lb service---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+spec:
+  selector:
+      project: roboshop
+      tier: database
+      component: mongodb
+      environment: dev
+
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017
+
