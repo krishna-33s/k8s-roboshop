@@ -4,6 +4,4 @@ metadata:
   name: roboshop
   labels:
     project: roboshop
-    tier: database
-    component: mongodb
     environment: dev
