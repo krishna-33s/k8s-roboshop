@@ -30,6 +30,13 @@ spec:
       containers:
       - name: mongodb
         image: krishna88s/mongodb:1.1.0
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          failureThreshold: 4
+          periodSeconds: 10 
+
 
 ---
 
