@@ -45,6 +45,11 @@ kind: Service
 metadata:
   name: redis
   namespace: roboshop
+  labels:
+    project: roboshop
+    tier: database
+    component: redis
+    environment: dev
 spec:
   selector:
       project: roboshop

@@ -60,7 +60,13 @@ kind: Service
 metadata:
   name: frontend
   namespace: roboshop
+  labels:
+    project: roboshop
+    tier: frontend
+    component: nginx
+    environment: dev
 spec:
+  type: LoadBalancer
   selector:
       project: roboshop
       tier: frontend

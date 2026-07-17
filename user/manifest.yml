@@ -79,6 +79,11 @@ kind: Service
 metadata:
   name: user
   namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: user
+    environment: dev
 spec:
   selector:
       project: roboshop

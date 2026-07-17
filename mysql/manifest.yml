@@ -45,6 +45,11 @@ kind: Service
 metadata:
   name: mysql
   namespace: roboshop
+  labels:
+    project: roboshop
+    tier: database
+    component: mysql
+    environment: dev
 spec:
   selector:
       project: roboshop
