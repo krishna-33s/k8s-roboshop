@@ -1,3 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-configmap
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: database
+    component: rabbitmq
+    environment: dev
+
+data:
+  RABBITMQ_DEFAULT_USER: "roboshop"
+  RABBITMQ_DEFAULT_PASS: "roboshop123"
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,6 +53,9 @@ spec:
             port: 5672
           failureThreshold: 4
           periodSeconds: 10 
+        envFrom:
+        - configMapRef:
+            name: rabbitmq-configmap
 
 
 ---
